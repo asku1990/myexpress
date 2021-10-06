@@ -18,7 +18,7 @@ app.post('/file_upload', function (req, res) {
    console.log(req.files.file.path);
    console.log(req.files.file.type);
    var file = __dirname + "/" + req.files.file.name;
-   
+
    fs.readFile( req.files.file.path, function (err, data) {
       fs.writeFile(file, data, function (err) {
          if( err ) {
@@ -29,7 +29,7 @@ app.post('/file_upload', function (req, res) {
                   filename:req.files.file.name
                };
             }
-         
+
          console.log( response );
          res.end( JSON.stringify( response ) );
       });
@@ -39,6 +39,6 @@ app.post('/file_upload', function (req, res) {
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
-   
+
    console.log("Example app listening at http://%s:%s", host, port)
 })
